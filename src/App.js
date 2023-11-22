@@ -1,10 +1,14 @@
 import React from "react";
 
+import Banner from "./components/banner"
+import Nav from "./components/nav"
+
 const App = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Nav/>  
+      <Banner/>
+    </>
   );
 };
 

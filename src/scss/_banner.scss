@@ -1,0 +1,136 @@
+
+.banner {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    font-family: 'Work Sans', sans-serif;
+    img {
+        min-width: 100%;
+        height: 100vh;
+    }
+    .banner-text {
+        position: absolute;
+        top: 40vh;
+        left: 10vw;
+        z-index: 30;
+        @media (max-width: 640px) {
+            position: absolute;
+            top: 10vh;
+            left: 10vw;
+            z-index: 30;
+        }
+        p {
+            font-weight: 400;
+            font-size: 16px;
+            color: whitesmoke;
+            line-height: 150%;
+            margin-bottom: 18px;
+        }
+        h1 {
+            color: whitesmoke;
+            font-weight: 200;
+            line-height: 100%;
+            font-size: 64px;
+            text-transform: capitalize;
+        }
+    }
+
+    .slideshowSlider {
+        white-space: nowrap;
+        transition: ease 1000ms;
+      }
+
+      .text-center {
+        color: white;
+        font-weight: 400;
+        font-size: large;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .thumbnail {
+        position: relative;
+        padding: 10px;
+        display: flex;
+        cursor: pointer;
+        
+    
+        img {
+          width: 100px; 
+          height: 100px;
+          
+          transition: opacity 0.7s ease-in-out;
+    
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+}
+
+.ex1, .ex2, .ex3 {
+    display: inline-block;
+    width: 130px; height: 130px;
+    margin: 0 20px;
+  }
+  
+  .ex1.snake-border::after { content: none; }
+  .ex2.snake-border::before { content: none; }
+  
+
+  @keyframes snake-border-head {
+    
+    90% { left: 0; top: 0; width: 0; height: 40%; }
+    90% { left: 0; top: 0; width: 0; height: 0; }
+    100% { left: 0; top: 0; width: 40%; height: 0; } 0% { left: 0; top: 0; width: 40%; height: 0; }
+    
+    15% { left: 60%; top: 0; width: 40%; height: 0; }
+    15% { left: 100%; top: 0; width: 0; height: 0; }
+    25% { left: 100%; top: 0; width: 0; height: 40%; }
+    
+    40% { left: 100%; top: 60%; width: 0; height: 40%; }
+    40% { left: 100%; top: 100%; width: 0; height: 0; }
+    50% { left: 60%; top: 100%; width: 40%; height: 0; }
+    
+    65% { left: 0; top: 100%; width: 40%; height: 0; }
+    65% { left: 0; top: 100%; width: 0; height: 0; }
+    75% { left: 0; top: 60%; width: 0; height: 40%; }
+    
+  }
+  @keyframes snake-border-tail {
+    
+    90% { top: 0%; height: 40%; }
+    100% { left: 0; top: 0; width: 0; height: 0; } 0% { left: 0; top: 0; width: 0; height: 0; }
+    
+    15% { width: 40%; }
+    25% { left: 100%; top: 0; width: 0; height: 0; }
+    
+    40% { height: 40%; }
+    50% { left: 100%; top: 100%; width: 0; height: 0; }
+    
+    65% { left: 0%; width: 40%; }
+    75% { left: 0; top: 100%; width: 0; height: 0; }
+    
+  }
+  
+  .snake-border {
+    position: absolute;
+    bottom: 7vh;
+    left: 6vw;
+    box-shadow: inset 0 0 0 0.5px white;
+  }
+  .snake-border::before, .snake-border::after {
+    content: '';
+    display: block;
+    position: absolute;
+    outline: 3px solid white;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  .snake-border::before { animation-name: snake-border-head; }
+  .snake-border::after { animation-name: snake-border-tail; }
+
