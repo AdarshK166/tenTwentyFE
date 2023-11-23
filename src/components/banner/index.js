@@ -1,22 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../../scss/_banner.scss';
 
+import bImage1 from '../../images/bannerImg1.webp';
+import bImage2 from '../../images/bannerImg2.webp';
+import bImage3 from '../../images/bannerImg3.webp';
+
 const images = [
   {
     id: 1,
-    src: "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg",
+    src: bImage1,
     alt: "Slide 1",
     caption: "slide 1"
   },
   {
     id: 2,
-    src: "https://images.pexels.com/photos/2132107/pexels-photo-2132107.jpeg",
+    src: bImage2,
     alt: "Slide 2",
     caption: "slide 2"
   },
   {
     id: 3,
-    src: "https://images.pexels.com/photos/789012/pexels-photo-789012.jpeg",
+    src: bImage3,
     alt: "Slide 3",
     caption: "slide 3"
   }
@@ -72,6 +76,12 @@ function Banner() {
         <img src={images[nextImageIndex].src} alt={`Thumbnail`} />
         <p className='text-center'>Next</p>
       </div>
+      </div>
+
+      <div className='counter'>
+        <p>{index}</p>
+        <div className='line'></div>
+        <p>{images.length}</p>
       </div>
     </div>
   );

@@ -1,39 +1,150 @@
 .nav {
     position: absolute;  
-    top: 10vh;           
-    left: 5vw; 
-    right: 5vw;         
+    top: 3vh;           
+    left: 2vw; 
+    right: 2vw;         
     background-color: white;
-    height: 100px;
+    height: 94px;
     z-index: 300;
     display: flex;   
     justify-content: space-between;  
     align-items: center;  
-    padding: 0 100px;  
+    padding: 0 32px;  
+   
+    button{
+      
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 600;
+      padding: 13px 23px;
+      border: 1px solid #222222;
+      transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+      background: #fff;
+      color: #222222;
+      :hover {
+          border-color: #000000;
+          background: #f7f7f7;
+      }
+
+      span{
+        font-size: 20px;
+      }
+
+    }
+
+
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
   
     ul {
       list-style: none;  
       margin: 0;
       padding: 0;
       display: inline-flex;
+      @media (max-width: 640px) {
+        display: none;
+      }
+
+      li:not(:first-child){
+        margin-left: 13px;
+      }
+
+      li:last-child{
+        margin-left: 9.3px;
+      }
   
       li {
-        margin: 0 12px;
-  
-        &:first-child {
-          margin-left: 0;
-        }
-  
-        &:last-child {
-          margin-right: 0;
-        }
+        margin: 0 4px;
   
         a {
           color: black;
           text-decoration: none;
-          font-weight: 400;
           font-size: 14px;
         }
       }
     }
+ 
   }
+
+  .hamburger{
+    display: none;
+  }
+ 
+  @media (max-width: 640px) {
+    .hamburger{
+      display: block;
+
+      .hamburger-button {
+        outline: none;
+        border: none;
+        cursor: pointer;
+        width: 3em;
+        height: 2em;
+        position: relative;
+        z-index: 10;
+        background-color: transparent;
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        -webkit-tap-highlight-color: transparent;
+      
+        &.open {
+          background-image: url(https://res.cloudinary.com/dnpyq0ocz/image/upload/v1588441892/icon-hamburger-close.svg);
+        }
+      }
+      
+      .panel {
+        max-width: 500px;
+        background-color: gray;
+        background-size: 117px 188px;
+        transition: all 0.4s cubic-bezier(0.42, 0, 0.34, 1.01);
+        position: fixed;
+        z-index: 5;
+        right: -100%;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        visibility: hidden;
+        opacity: 0;
+        padding: 3em;
+        display: flex;
+      
+        &.open {
+          visibility: visible;
+          width: 100%;
+          right: 0;
+          opacity: 1;
+        }
+      }
+      
+      ul {
+        margin: auto 0 auto auto;
+        display: block;
+      
+        li {
+          list-style: none;
+          font-size: 2em;
+          text-align: right;
+      
+          & + li {
+            margin-top: 1em;
+          }
+      
+          a {
+            text-decoration: none;
+            color: white;
+      
+            &:hover {
+              color: #7a6ffb;
+            }
+          }
+        }
+      }
+    }
+    
+  }
+
